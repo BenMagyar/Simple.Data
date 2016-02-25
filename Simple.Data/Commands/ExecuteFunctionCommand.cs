@@ -39,7 +39,8 @@ namespace Simple.Data.Commands
 
         private SimpleResultSet ToMultipleDynamicEnumerables(IEnumerable<IEnumerable<IDictionary<string, object>>> resultSets)
         {
-            var result = new SimpleResultSet(resultSets.Select(resultSet => resultSet.Select(dict => new SimpleRecord(dict))));
+            SimpleResultSet result = new SimpleResultSet((IEnumerable<IEnumerable<dynamic>>)resultSets
+                .Select(resultSet => resultSet.Select(dict => new SimpleRecord(dict))));
             result.SetOutputValues(_arguments);
             return result;
         }

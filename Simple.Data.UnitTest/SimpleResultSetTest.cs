@@ -402,7 +402,7 @@
                 { "List", new List<string> { "First-One", "First-Two" } }
             });
 
-            var list = new SimpleResultSet(new List<dynamic> { firstRecord });
+            var list = new SimpleResultSet((IEnumerable<dynamic>)new List<dynamic> { firstRecord });
 
             var result = list.Cast<TestType2>().First();
 

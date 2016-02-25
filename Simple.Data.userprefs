@@ -1,56 +1,31 @@
-﻿<Properties>
+﻿<Properties StartupItem="PerformanceTestConsole/PerformanceTestConsole.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Simple.Data.UnitTest/DynamicEnumerableTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Simple.Data.UnitTest/PluralizationTest.cs">
     <Files>
-      <File FileName="Simple.Data/SimpleQuery.cs" Line="189" Column="38" />
-      <File FileName="Simple.Data/Commands/FindAllByCommand.cs" Line="37" Column="17" />
-      <File FileName="Simple.Data/SimpleResultSet.cs" Line="59" Column="60" />
-      <File FileName="Simple.Data.Ado/ProviderHelper.cs" Line="31" Column="103" />
-      <File FileName="Simple.Data.Ado/Properties/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="Simple.Data.Ado.Test/ProviderTest.cs" Line="29" Column="27" />
-      <File FileName="Simple.Data.Mocking/XmlMockAdapter.cs" Line="93" Column="1" />
-      <File FileName="Simple.Data.BehaviourTest/ProcedureTest.cs" Line="30" Column="51" />
-      <File FileName="Simple.Data.Mocking.Test/XmlMockAdapterTest.cs" Line="179" Column="1" />
-      <File FileName="Simple.Data.UnitTest/DynamicEnumerableTest.cs" Line="17" Column="1" />
+      <File FileName="Simple.Data/Commands/ExecuteFunctionCommand.cs" Line="1" Column="1" />
+      <File FileName="Simple.Data/SimpleResultSet.cs" Line="1" Column="1" />
+      <File FileName="Simple.Data/Extensions/ResultSetExtensions.cs" Line="1" Column="1" />
+      <File FileName="Simple.Data.UnitTest/PluralizationTest.cs" Line="115" Column="5" />
+      <File FileName="Simple.Data.BehaviourTest/NameResolutionTests.cs" Line="1" Column="1" />
+      <File FileName="Simple.Data.UnitTest/SimpleResultSetTest.cs" Line="1" Column="1" />
+      <File FileName="Simple.Data/Extensions/StringExtensions.cs" Line="19" Column="9" />
+      <File FileName="Simple.Data.UnitTest/StringExtensionsTest.cs" Line="1" Column="1" />
     </Files>
     <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Tests" expanded="True">
-            <Node name="Simple.Data.Ado.Test" expanded="True" />
-            <Node name="Simple.Data.BehaviourTest" expanded="True" />
-            <Node name="Simple.Data.Mocking.Test" expanded="True" />
-            <Node name="Simple.Data.UnitTest" expanded="True">
-              <Node name="DynamicEnumerableTest.cs" selected="True" />
-            </Node>
-          </Node>
-          <Node name="Simple.Data.Ado" expanded="True">
-            <Node name="Properties" expanded="True" />
-          </Node>
-          <Node name="Simple.Data.Mocking" expanded="True" />
-          <Node name="Simple.Data.SqlServer" expanded="True">
-            <Node name="References" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
-      </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
-          <Node name="Tests" expanded="True">
-            <Node name="Simple.Data.Ado.Test" expanded="True">
-              <Node name="Simple" expanded="True">
-                <Node name="Data" expanded="True">
-                  <Node name="Ado" expanded="True">
-                    <Node name="Test" expanded="True">
-                      <Node name="ProviderTest" expanded="True" />
+        <State name="__root__">
+          <Node name="Simple.Data" expanded="True">
+            <Node name="Tests" expanded="True">
+              <Node name="Simple.Data.UnitTest" expanded="True">
+                <Node name="Simple" expanded="True">
+                  <Node name="Data" expanded="True">
+                    <Node name="UnitTest" expanded="True">
+                      <Node name="PluralizationTest" selected="True" />
                     </Node>
                   </Node>
                 </Node>
               </Node>
             </Node>
-            <Node name="Simple.Data.UnitTest" selected="True" />
           </Node>
         </State>
       </Pad>

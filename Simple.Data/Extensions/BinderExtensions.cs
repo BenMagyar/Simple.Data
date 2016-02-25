@@ -5,23 +5,33 @@
     using System.Reflection;
     using Microsoft.CSharp.RuntimeBinder;
 
+
     internal static class BinderExtensions
     {
         private static readonly Type TypeOfICSharpInvokeMemberBinder;
-        private static readonly PropertyInfo ResultDiscardedProperty;
+        private static readonly FieldInfo FlagsField;
         private static readonly Func<InvokeMemberBinder, bool> ResultDiscardedGetter;
+        private static bool _isMono = Type.GetType("Mono.Runtime") != null;
 
         static BinderExtensions()
         {
             // Microsoft are hiding the good stuff again. Not having that.
             try
             {
-                TypeOfICSharpInvokeMemberBinder = Assembly.GetAssembly(typeof (CSharpArgumentInfo))
-                    .GetType("Microsoft.CSharp.RuntimeBinder.ICSharpInvokeOrInvokeMemberBinder");
+                // Get a different type if mono
+                var typeToGet = _isMono
+                    ? "Microsoft.CSharp.RuntimeBinder.CSharpInvokeMemberBinder"
+                    : "Microsoft.CSharp.RuntimeBinder.ICSharpInvokeOrInvokeMemberBinder";
+
+                TypeOfICSharpInvokeMemberBinder = Assembly.GetAssembly(typeof(CSharpArgumentInfo)).GetType(typeToGet);
                 if (TypeOfICSharpInvokeMemberBinder != null)
                 {
-                    ResultDiscardedProperty = TypeOfICSharpInvokeMemberBinder.GetProperty("ResultDiscarded");
-                    if (ResultDiscardedProperty != null)
+                    BindingFlags bindFlags = BindingFlags.Instance 
+                        | BindingFlags.Public 
+                        | BindingFlags.NonPublic
+                        | BindingFlags.Static;
+                    FlagsField = TypeOfICSharpInvokeMemberBinder.GetField("flags", bindFlags);
+                    if (FlagsField != null)
                     {
                         ResultDiscardedGetter = GetResultDiscardedImpl;
                     }
@@ -53,7 +63,7 @@
 
             try
             {
-                return (bool) ResultDiscardedProperty.GetValue(binder, null);
+                return ((CSharpBinderFlags)FlagsField.GetValue(binder) & CSharpBinderFlags.ResultDiscarded) != 0;
             }
             catch (ArgumentException)
             {

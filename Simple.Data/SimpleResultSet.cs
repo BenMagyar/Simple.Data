@@ -304,7 +304,7 @@ namespace Simple.Data
         /// <returns></returns>
         public static SimpleResultSet Create(IEnumerable<IEnumerable<IDictionary<string, object>>> sources)
         {
-            var q = from source in sources
+            IEnumerable<IEnumerable<dynamic>> q = from source in sources
                     select from dict in source
                     select new SimpleRecord(dict);
             return new SimpleResultSet(q);
